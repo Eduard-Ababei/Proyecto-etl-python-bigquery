@@ -1,39 +1,39 @@
 # ETL Pipeline with Python and Google BigQuery
 
-Este proyecto implementa un flujo ETL completo utilizando Python, pandas y Google BigQuery.  
-Demuestra la integración entre un entorno local de análisis de datos y un data warehouse en la nube, replicando un caso práctico real de ingeniería de datos.
+This project implements a complete ETL (Extract–Transform–Load) workflow using Python, pandas, and Google BigQuery.  
+It demonstrates how to integrate a local data analysis environment with a cloud-based data warehouse, replicating a realistic Data Engineering scenario.
 
 ---
 
-## 1. Descripción general
+## 1. Overview
 
-El pipeline ejecuta las tres fases principales del proceso ETL:
+The pipeline executes the three core stages of an ETL process:
 
-**Extract:** lectura de un dataset público desde un repositorio remoto.  
-**Transform:** limpieza, agregación y cálculo de métricas con pandas.  
-**Load:** carga del resultado transformado en una tabla de Google BigQuery mediante la API oficial.
+- **Extract:** load a public dataset from a remote repository.  
+- **Transform:** clean, aggregate, and compute summary statistics using pandas.  
+- **Load:** upload the transformed results into a BigQuery table through the official Google Cloud API.
 
-Este proyecto sirve como referencia práctica para conectar Python con Google Cloud Platform gestionando credenciales, clientes, datasets y consultas SQL.
+This project serves as a practical reference for connecting Python with Google Cloud Platform, handling service account authentication, client initialization, dataset management, and SQL querying.
 
 ---
 
-## 2. Tecnologías utilizadas
+## 2. Technologies Used
 
-| Categoría | Herramienta |
-|----------|-------------|
-| Lenguaje | Python 3.x |
+| Category | Tool / Library |
+|----------|----------------|
+| Language | Python 3.x |
 | Data Wrangling | pandas |
 | Cloud Platform | Google Cloud Platform (GCP) |
 | Data Warehouse | BigQuery |
 | SDK | google-cloud-bigquery |
-| Serialización | pyarrow |
-| Autenticación | Service Account Credentials |
-| Entorno | venv |
-| Control de versiones | Git, GitHub |
+| Serialization | pyarrow |
+| Authentication | Service Account Credentials |
+| Virtual Environment | venv |
+| Version Control | Git, GitHub |
 
 ---
 
-## 3. Estructura del proyecto
+## 3. Project Structure
 
 ```
 etl-python-bigquery/
@@ -48,46 +48,46 @@ etl-python-bigquery/
 └── README.md
 ```
 
+
 ---
 
-## 4. Flujo ETL
+## 4. ETL Workflow
 
 ### Extract  
-Se obtiene el dataset Iris desde un repositorio abierto utilizando `pandas.read_csv()`.
+The Iris dataset is fetched from a public repository using `pandas.read_csv()`.
 
 ### Transform  
-Se agrupan las observaciones por especie y se calculan medias de las columnas numéricas.
+The data is grouped by species and numerical features are aggregated using mean values.
 
 ### Load  
-El resultado se carga en BigQuery mediante:
+The transformed data is uploaded to BigQuery by:
 
-- inicialización del cliente  
-- creación de dataset y tabla  
-- carga con `load_table_from_dataframe()`  
+- Initializing the BigQuery client  
+- Defining dataset and table paths  
+- Writing the DataFrame using `load_table_from_dataframe()`  
 
-### Validación  
-El pipeline finaliza ejecutando una consulta SQL desde Python para comprobar que la tabla se ha cargado correctamente.
+### Validation  
+The process ends by executing a SQL query from Python to verify that the table has been loaded correctly.
 
 ---
 
-## 5. Resultados
+## 5. Results
 
-El flujo ETL genera la tabla:
+The ETL pipeline produces the table:
 
 demo_dataset.iris_summary
 
-
-Dentro del proyecto de GCP:
+Inside the GCP project:
 
 eloquent-hangar-474417-t1
 
-
-Esta tabla puede utilizarse posteriormente en dashboards, análisis o pipelines avanzados.
+This table can later be used for dashboards, analytics, and more advanced data pipelines.
 
 ---
 
-## 6. Autor
+## 6. Author
 
-Stefan Eduard Ababei Jorascu
-Github: https://github.com/Eduard-Ababei/Proyecto-etl-python-bigquery
-Proyecto orientado a prácticas reales de Data Engineering con Python y Google Cloud.
+Stefan Eduard Ababei Jorascu  
+GitHub: https://github.com/Eduard-Ababei/Proyecto-etl-python-bigquery  
+This project is designed as a real-world Data Engineering practice using Python and Google Cloud BigQuery.
+
