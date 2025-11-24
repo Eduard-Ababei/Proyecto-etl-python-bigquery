@@ -35,7 +35,7 @@ Este proyecto sirve como referencia práctica para conectar Python con Google Cl
 
 ## 3. Estructura del proyecto
 
-\`\`\`
+```
 etl-python-bigquery/
 │
 ├── notebook/
@@ -46,7 +46,7 @@ etl-python-bigquery/
 │
 ├── requirements.txt
 └── README.md
-\`\`\`
+```
 
 ---
 
