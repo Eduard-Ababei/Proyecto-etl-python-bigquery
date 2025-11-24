@@ -88,6 +88,6 @@ This table can later be used for dashboards, analytics, and more advanced data p
 ## 6. Author
 
 Stefan Eduard Ababei Jorascu  
-GitHub: https://github.com/Eduard-Ababei/Proyecto-etl-python-bigquery  
+GitHub: https://github.com/Eduard-Ababei/gcp-bigquery-etl-pipeline  
 This project is designed as a real-world Data Engineering practice using Python and Google Cloud BigQuery.
 
