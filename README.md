@@ -42,7 +42,7 @@ etl-python-bigquery/
 │   └── etl_bigquery.ipynb
 │
 ├── credentials/
-│   └── service_account.json   (no subir a GitHub)
+│   └── service_account.json  
 │
 ├── requirements.txt
 └── README.md
