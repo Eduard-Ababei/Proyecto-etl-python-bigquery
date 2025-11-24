@@ -1,47 +1,93 @@
-Mini-Proyecto ETL Python → BigQuery
+# ETL Pipeline with Python and Google BigQuery
 
-Este proyecto muestra cómo construir un flujo ETL (Extract → Transform → Load) completo utilizando Python y Google Cloud BigQuery.
+Este proyecto implementa un flujo ETL completo utilizando Python, pandas y Google BigQuery.  
+Demuestra la integración entre un entorno local de análisis de datos y un data warehouse en la nube, replicando un caso práctico real de ingeniería de datos.
 
-El objetivo es practicar la integración entre pandas, las APIs de Google Cloud y un entorno real de ingeniería de datos, gestionando credenciales locales, carga de datos y consultas desde Python.
+---
 
-Objetivos del proyecto
+## 1. Descripción general
 
-Conectar un entorno Python local con Google Cloud BigQuery mediante credenciales de servicio.
+El pipeline ejecuta las tres fases principales del proceso ETL:
 
-Realizar un flujo ETL completo:
+**Extract:** lectura de un dataset público desde un repositorio remoto.  
+**Transform:** limpieza, agregación y cálculo de métricas con pandas.  
+**Load:** carga del resultado transformado en una tabla de Google BigQuery mediante la API oficial.
 
-Extract: lectura de datos desde un dataset público (CSV).
+Este proyecto sirve como referencia práctica para conectar Python con Google Cloud Platform gestionando credenciales, clientes, datasets y consultas SQL.
 
-Transform: limpieza y agregación con pandas.
+---
 
-Load: carga del resultado en una tabla BigQuery mediante la API oficial.
+## 2. Tecnologías utilizadas
 
-Validar la carga realizando una consulta SQL desde Python.
+| Categoría | Herramienta |
+|----------|-------------|
+| Lenguaje | Python 3.x |
+| Data Wrangling | pandas |
+| Cloud Platform | Google Cloud Platform (GCP) |
+| Data Warehouse | BigQuery |
+| SDK | google-cloud-bigquery |
+| Serialización | pyarrow |
+| Autenticación | Service Account Credentials |
+| Entorno | venv |
+| Control de versiones | Git, GitHub |
 
-Comprender los pasos necesarios para integrar código, nube y datos de forma práctica.
+---
 
-Tecnologías utilizadas
-Categoría	Herramienta / Librería
-Lenguaje principal	Python 3.x
-Data Wrangling	pandas
-Cloud Platform	Google Cloud Platform (GCP)
-Data Warehouse	BigQuery
-API SDK	google-cloud-bigquery
-Serialización de datos	pyarrow
-Autenticación	application_default_credentials.json
-Entorno virtual	venv
-Control de versiones	Git y GitHub
-Estructura del notebook
-Paso	Descripción
-1. Dependencias y configuración inicial	Carga de librerías y autenticación con load_credentials_from_file()
-2. Lectura del dataset	Descarga del dataset público Iris mediante pandas.read_csv()
-3. Transformación	Agregación y cálculo de medias por especie con pandas
-4. Carga en BigQuery	Creación de dataset y tabla en BigQuery, y carga del DataFrame con load_table_from_dataframe()
-5. Verificación	Ejecución de una consulta SQL desde Python para validar los datos cargados
-Resultados
+## 3. Estructura del proyecto
 
-El notebook permite crear un flujo ETL funcional en la nube utilizando BigQuery, demostrando el proceso de integración entre código Python, datasets externos y servicios cloud.
-El resultado final es una tabla llamada iris_summary en el dataset demo_dataset dentro del proyecto eloquent-hangar-474417-t1.
+\`\`\`
+etl-python-bigquery/
+│
+├── notebook/
+│   └── etl_bigquery.ipynb
+│
+├── credentials/
+│   └── service_account.json   (no subir a GitHub)
+│
+├── requirements.txt
+└── README.md
+\`\`\`
 
-Autor: Stefan Eduard Ababei
-Proyecto de práctica: Python + Google Cloud BigQuery
+---
+
+## 4. Flujo ETL
+
+### Extract  
+Se obtiene el dataset Iris desde un repositorio abierto utilizando `pandas.read_csv()`.
+
+### Transform  
+Se agrupan las observaciones por especie y se calculan medias de las columnas numéricas.
+
+### Load  
+El resultado se carga en BigQuery mediante:
+
+- inicialización del cliente  
+- creación de dataset y tabla  
+- carga con `load_table_from_dataframe()`  
+
+### Validación  
+El pipeline finaliza ejecutando una consulta SQL desde Python para comprobar que la tabla se ha cargado correctamente.
+
+---
+
+## 5. Resultados
+
+El flujo ETL genera la tabla:
+
+demo_dataset.iris_summary
+
+
+Dentro del proyecto de GCP:
+
+eloquent-hangar-474417-t1
+
+
+Esta tabla puede utilizarse posteriormente en dashboards, análisis o pipelines avanzados.
+
+---
+
+## 6. Autor
+
+Stefan Eduard Ababei Jorascu
+Github: https://github.com/Eduard-Ababei/Proyecto-etl-python-bigquery
+Proyecto orientado a prácticas reales de Data Engineering con Python y Google Cloud.
